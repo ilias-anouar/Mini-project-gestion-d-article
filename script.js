@@ -10,8 +10,8 @@ class Item {
         this.details = function () {
             return (`Item Details:<br>name : ${this.name}.<br>brand : ${this.brand}.<br>date : ${this.date}.<br>type : ${this.type}.<br>disount : ${this.discount}.`)
         }
-        this.json = function(){
-            return (`Item Details:\n name : ${this.name}. \n brand : ${this.brand}. \n date : ${this.date}. \n type : ${this.type}. \n disount : ${this.discount}.`)  
+        this.json = function () {
+            return (`Item Details:\n name : ${this.name}. \n brand : ${this.brand}. \n date : ${this.date}. \n type : ${this.type}. \n disount : ${this.discount}.`)
         }
         this.table = function () {
             return [this.name, this.brand, this.price, this.date, this.type, this.discount, `<button id="remove${id}" onclick='remove(this)' class="remove">Remove</button><button onclick='edit(this);' id="add${id}" class="add">Edite</button>`]
@@ -125,7 +125,7 @@ function validation(item) {
         }
         return item
     }
-}    
+}
 // ::::::::::::: add :::::::::::::
 let id = 0
 document.getElementById('button').onclick = function (ev) {
