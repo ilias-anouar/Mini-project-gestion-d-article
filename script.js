@@ -18,6 +18,27 @@ class Item {
         }
     }
 }
+// function allStorage() {
+
+//     var values = [],
+//         keys = Object.keys(localStorage),
+//         i = keys.length;
+
+//     while ( i-- ) {
+//         values.push( localStorage.getItem(keys[i]) );
+//     }
+
+//     return values;
+// }
+// console.log(allStorage());
+// let table = document.getElementById('table')
+// let tr = document.createElement('tr')
+// tr.setAttribute('id', 'tr')
+// table.appendChild(tr)
+// for (let i = 0; i < allStorage().length; i++) {
+//     let td = document.createElement('td')
+//     td.innerHTML = allStorage[i]
+// }
 // :::::::::::::: validation helpers ::::::::::::
 function checkP() {
     let p = document.querySelectorAll("form p")
