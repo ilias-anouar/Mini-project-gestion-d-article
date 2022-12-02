@@ -10,9 +10,6 @@ class Item {
         this.details = function () {
             return (`Item Details:<br>name : ${this.name}.<br>brand : ${this.brand}.<br>date : ${this.date}.<br>type : ${this.type}.<br>disount : ${this.discount}.`)
         }
-        this.json = function () {
-            return (`Item Details:\n name : ${this.name}. \n brand : ${this.brand}. \n date : ${this.date}. \n type : ${this.type}. \n disount : ${this.discount}.`)
-        }
         this.table = function () {
             return [this.name, this.brand, this.price, this.date, this.type, this.discount, `<button id="remove${id}" onclick='remove(this)' class="remove">Remove</button><button onclick='edit(this);' id="add${id}" class="add">Edite</button>`]
         }
@@ -25,7 +22,7 @@ class Item {
 //         i = keys.length;
 
 //     while ( i-- ) {
-//         values.push( localStorage.getItem(keys[i]) );
+//         values.push( JSON.parse(localStorage.getItem(keys[i])) );
 //     }
 
 //     return values;
@@ -36,8 +33,13 @@ class Item {
 // tr.setAttribute('id', 'tr')
 // table.appendChild(tr)
 // for (let i = 0; i < allStorage().length; i++) {
-//     let td = document.createElement('td')
-//     td.innerHTML = allStorage[i]
+//     let tablelm = []
+//     tablelm.push(allStorage()[i])
+//     for (let j = 0; j < table.length; j++) {
+//         let td = document.createElement('td')
+//         td.innerHTML = table[j]
+//     }
+//     console.log(tablelm);
 // }
 // :::::::::::::: validation helpers ::::::::::::
 function checkP() {
@@ -147,6 +149,29 @@ function validation(item) {
         return item
     }
 }
+// ::::::::::::sort:::::::::::::::
+function sortTable() {
+    var table, rows, switching, i, x, y, shouldSwitch;
+    table = document.getElementById("table");
+    switching = true;
+    while (switching) {
+      switching = false;
+      rows = table.rows;
+      for (i = 1; i < (rows.length - 1); i++) {
+        shouldSwitch = false;
+        x = rows[i].getElementsByTagName("td")[0];
+        y = rows[i + 1].getElementsByTagName("td")[0];
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          shouldSwitch = true;
+          break;
+        }
+      }
+      if (shouldSwitch) {
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+      }
+    }
+}
 // ::::::::::::: add :::::::::::::
 let id = 0
 document.getElementById('button').onclick = function (ev) {
@@ -161,6 +186,7 @@ document.getElementById('button').onclick = function (ev) {
         }
         window.localStorage.setItem(inputvalue().name, JSON.stringify(inputvalue()))
         resetform()
+        sortTable()
     } else {
         ev.preventDefault()
     }
