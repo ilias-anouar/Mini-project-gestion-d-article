@@ -130,7 +130,7 @@ function validation(item) {
   checkbrand(item.brand);
   checkprice(item.price);
   // condition
-  if ((e = true)) {
+  if ((e == true)) {
     if (checkName(item.name)) {
       document.getElementById("invname").classList.remove("erore");
     } else {
