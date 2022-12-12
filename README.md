@@ -1,1 +1,1 @@
-a simple CRUD with locale storage
+a simple CRUD with local storage example
