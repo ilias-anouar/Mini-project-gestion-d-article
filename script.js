@@ -114,6 +114,7 @@ function inputvalue() {
     select,
     getpromo(discount)
   ));
+  
 }
 // :::::::::: date max value::::::
 production_date.max = new Date().toLocaleDateString("en-ca");
@@ -157,8 +158,8 @@ function validation(item) {
       document.getElementById("invselc").classList.remove("erore");
     }
     check = false;
-    return item;
   }
+  return item;
 }
 // ::::::::::::sort:::::::::::::::
 function sortTable() {
