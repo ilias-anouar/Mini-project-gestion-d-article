@@ -12,6 +12,9 @@ body {
   grid-template-rows: 1fr;
   grid-template-areas: "form section section section";
 }
+h2{
+  font-size: xx-large;
+}
 /* =====erore========= */
 .erore {
   display: block;
