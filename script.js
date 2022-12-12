@@ -25,22 +25,22 @@ class Item {
 }
 // ::::::::::::: localstorag relod :::::::::::
 function allStorage() {
-    var values = [],
-        keys = Object.keys(localStorage),
-        i = keys.length;
-    while ( i-- ) {
-        values.push(JSON.parse(localStorage.getItem(keys[i])));
-    }
-    return values;
+  var values = [],
+    keys = Object.keys(localStorage),
+    i = keys.length;
+  while (i--) {
+    values.push(JSON.parse(localStorage.getItem(keys[i])));
+  }
+  return values;
 }
-window.addEventListener("DOMContentLoaded",function(){
+window.addEventListener("DOMContentLoaded", function () {
   allStorage();
   for (let i = 0; i < allStorage().length; i++) {
-    id++
-    save(allStorage()[i])
+    id++;
+    save(allStorage()[i]);
   }
   sortTable();
-})
+});
 // :::::::::::::: validation helpers ::::::::::::
 function checkP() {
   let p = document.querySelectorAll("form p");
@@ -116,7 +116,7 @@ function inputvalue() {
   ));
 }
 // :::::::::: date max value::::::
-production_date.max = new Date().toLocaleDateString('en-ca')
+production_date.max = new Date().toLocaleDateString("en-ca");
 // :::::::::: validation :::::::::
 function validation(item) {
   // validation
@@ -124,7 +124,7 @@ function validation(item) {
   checkbrand(item.brand);
   checkprice(item.price);
   // condition
-  let check = true
+  let check = true;
   while (check) {
     if (checkName(item.name)) {
       document.getElementById("invname").classList.remove("erore");
@@ -156,7 +156,7 @@ function validation(item) {
     } else {
       document.getElementById("invselc").classList.remove("erore");
     }
-    check = false
+    check = false;
     return item;
   }
 }
@@ -215,19 +215,19 @@ function remove(that) {
   modaleremove();
   document.getElementById("delete").onclick = function () {
     if ((document.getElementById("delete").value = "delete")) {
-      let deletedata = that.closest("tr")
-      let alldata = deletedata.querySelectorAll("td")
-      let table = new Array
-      alldata.forEach((data)=>table.push(data.innerHTML))
+      let deletedata = that.closest("tr");
+      let alldata = deletedata.querySelectorAll("td");
+      let table = new Array();
+      alldata.forEach((data) => table.push(data.innerHTML));
       console.log(table[0]);
-      removstorag(table[0])
+      removstorag(table[0]);
       that.closest("tr").remove();
       document.getElementById("modaleremove").style.display = "none";
     }
   };
 }
 function removstorag(that) {
-  window.localStorage.removeItem(that)
+  window.localStorage.removeItem(that);
 }
 document.getElementById("cancel").onclick = function () {
   document.getElementById("modaleremove").style.display = "none";
@@ -267,8 +267,11 @@ function edit(that) {
     }
     save.style.display = "none";
     button.style.display = "block";
-    removstorag(table[0])
-    window.localStorage.setItem(inputvalue().name,JSON.stringify(inputvalue().table()));
+    removstorag(table[0]);
+    window.localStorage.setItem(
+      inputvalue().name,
+      JSON.stringify(inputvalue().table())
+    );
     sortTable();
     resetform();
   };
