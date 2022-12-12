@@ -116,7 +116,7 @@ function inputvalue() {
   ));
   
 }
-// :::::::::: date max value::::::
+// :::::::::: date max value ::::::
 production_date.max = new Date().toLocaleDateString("en-ca");
 // :::::::::: validation :::::::::
 function validation(item) {
