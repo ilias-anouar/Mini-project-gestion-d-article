@@ -36,8 +36,8 @@ function allStorage() {
 window.addEventListener("DOMContentLoaded", function () {
   allStorage();
   for (let i = 0; i < allStorage().length; i++) {
-    id++;
     save(allStorage()[i]);
+    id++;
   }
   sortTable();
 });
