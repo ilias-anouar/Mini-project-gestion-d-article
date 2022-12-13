@@ -163,7 +163,7 @@ function validation(item) {
 }
 // ::::::::::::sort:::::::::::::::
 function sortTable() {
-  var table, rows, switching, i, x, y, shouldSwitch;
+  let table, rows, switching, i, x, y, shouldSwitch;
   table = document.getElementById("table");
   switching = true;
   while (switching) {
