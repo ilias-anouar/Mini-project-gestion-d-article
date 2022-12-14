@@ -25,8 +25,8 @@ class Item {
 }
 // ::::::::::::: localstorag relod :::::::::::
 function allStorage() {
-  var values = [],
-    keys = Object.keys(localStorage),
+  let values = []
+    keys = Object.keys(localStorage)
     i = keys.length;
   while (i--) {
     values.push(JSON.parse(localStorage.getItem(keys[i])));
@@ -40,7 +40,7 @@ window.addEventListener("DOMContentLoaded", function () {
     id++;
   }
   sortTable();
-});
+})
 // :::::::::::::: validation helpers ::::::::::::
 function checkP() {
   let p = document.querySelectorAll("form p");
@@ -163,9 +163,10 @@ function validation(item) {
 }
 // ::::::::::::sort:::::::::::::::
 function sortTable() {
-  let table, rows, switching, i, x, y, shouldSwitch;
+  let table, rows, switching, i, x, y, shouldSwitch, cont;
   table = document.getElementById("table");
   switching = true;
+  cont = 0
   while (switching) {
     switching = false;
     rows = table.rows;
@@ -179,10 +180,12 @@ function sortTable() {
       }
     }
     if (shouldSwitch) {
+      cont++
       rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
       switching = true;
     }
   }
+  console.log(cont);
 }
 // ::::::::::::: add :::::::::::::
 let id = 0;
@@ -275,5 +278,5 @@ function edit(that) {
     );
     sortTable();
     resetform();
-  };
+  }
 }
